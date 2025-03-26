@@ -1,44 +1,38 @@
 import styled from 'styled-components';
-import { secundaryColor } from '../../config/colors';
-export const Head = styled.header`
-  display: flex; /* flex */
-  align-items: center; /* items-center */
-  justify-content: space-between; /* justify-between */
-  padding: 1rem; /* p-4 (1rem = 16px) */
-  background-color: white; /* bg-white */
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
 
-  .menuIcon {
-    width: 32px;
-    height: 32px;
+export const SectionTop = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  padding-bottom: 21px;
+  border-bottom: 1px solid rgba(209, 209, 209, 1);
+
+  button {
+    background: rgba(0, 128, 255, 1);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
   }
-
-  .notification {
-    height: 2rem;
-    width: 1.8rem;
+  .iconPlus {
+    height: 20px;
+    width: 20px;
   }
 `;
 
-export const Container = styled.div`
+export const SearchBar = styled.div`
   max-width: 100%; /* container (por padrão, o container do Tailwind tem largura máxima responsiva) */
-  padding: 16px; /* p-4 (1rem = 16px) */
-  margin-left: auto;
-  margin-right: auto;
-
+  border: 1px solid rgba(209, 209, 209, 1);
+  border-radius: 10px;
   .lupa {
     display: flex; /* flex */
     align-items: center; /* items-center */
     padding: 0.5rem; /* p-2 (0.5rem = 8px) */
-    margin-left: auto; /* mx-auto */
-    margin-right: auto; /* mx-auto */
     background-color: #f3f4f6; /* bg-gray-100 */
     border-radius: 9999px; /* rounded-full */
     box-shadow:
       0 4px 6px -1px rgba(0, 0, 0, 0.1),
       0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-    max-width: 16rem; /* max-w-64 (16rem = 256px) */
+    max-width: 100%; /* max-w-64 (16rem = 256px) */
   }
 
   .searchIcon {
@@ -59,5 +53,26 @@ export const Container = styled.div`
 
   .barraPesquisa:focus {
     outline: none;
+  }
+`;
+
+export const Filter = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  width: 100%;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: none;
+    width: 50%;
+    border: 1px solid rgba(209, 209, 209, 1);
+  }
+
+  img {
+    width: 1.1rem;
+    height: 1.1rem;
   }
 `;

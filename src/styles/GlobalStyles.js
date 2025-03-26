@@ -27,12 +27,8 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
-    background: ${colors.secundaryColor};
     border: none;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 4px ;
-    font-weight: 700;
+    border-radius: 10px;
   }
 
   a{
@@ -75,4 +71,12 @@ export const Container = styled.section`
 export const PageBackground = styled.div`
   width: 100%;
   height: 100%;
+`;
+
+export const DivMain = styled.div`
+  padding: 16px;
+`;
+
+export const SectionMain = styled.section`
+  padding: 4px;
 `;

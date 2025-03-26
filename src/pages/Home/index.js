@@ -4,8 +4,7 @@ import axios from '../../services/axios';
 
 import BoxIntroduction from '../../components/introduction';
 import BoxContent from '../../components/boxContent';
-import { PageBackground } from '../../styles/GlobalStyles';
-import { DivMain, SectionMain } from './styled';
+import { PageBackground, DivMain, SectionMain } from '../../styles/GlobalStyles';
 import iconDashboard from '../../assets/images/Icon-with-border.png';
 
 export default function Home() {
