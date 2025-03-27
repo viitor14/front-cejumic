@@ -78,5 +78,8 @@ export const DivMain = styled.div`
 `;
 
 export const SectionMain = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
   padding: 4px;
 `;

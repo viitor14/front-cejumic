@@ -11,7 +11,7 @@ import Recipient from '../pages/Recipient';
 export default function Routes() {
   return (
     <Switch>
-      <MyRoute exact path="/" component={Login} />
+      <MyRoute exact path="/" component={Recipient} />
       <MyRoute exact path="/Dashboard" component={Home} />
       <MyRoute exact path="/Beneficiario" component={Recipient} />
       \\Para rendizarar uma rota. EXACT para rendizarar a rota com caminho especifico
