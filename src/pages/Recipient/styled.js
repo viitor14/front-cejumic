@@ -131,4 +131,10 @@ export const TableData = styled.table`
     padding: 21px 0;
     color: #727278;
   }
+
+  .dataColumn2 span {
+    padding: 10px 5px;
+    border-radius: 10px;
+    background: #d1fae5;
+  }
 `;

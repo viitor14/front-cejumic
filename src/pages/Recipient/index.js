@@ -58,11 +58,13 @@ export default function Recipient() {
             <tbody>
               <tr>
                 <td>
-                  <span>João</span>
+                  <span>Joãdddo</span>
                   <br></br>
                   <span>232424</span>
                 </td>
-                <td>Inativo</td>
+                <td className="dataColumn2">
+                  <span>Inativo</span>
+                </td>
                 <td>
                   <img src={iconActions}></img>
                 </td>
