@@ -91,6 +91,7 @@ export const TextInformation = styled.div`
 export const TableData = styled.table`
   width: 100%;
   border-collapse: collapse;
+
   //border-spacing: 0 21px;
 
   th,
@@ -100,6 +101,16 @@ export const TableData = styled.table`
     vertical-align: middle; /* Alinha o conteúdo verticalmente */
     //border: 1px solid #ddd; /* Adiciona borda nas células */
     border-bottom: 1px solid rgba(209, 209, 209, 1);
+  }
+
+  /* Estilo para o cabeçalho */
+  th {
+    padding: 21px 0;
+    color: #727278;
+  }
+
+  td {
+    font-size: 12px;
   }
 
   /* Se necessário, pode ajustar a largura de cada coluna */
@@ -126,15 +137,26 @@ export const TableData = styled.table`
     height: 15px;
   }
 
-  /* Estilo para o cabeçalho */
-  th {
-    padding: 21px 0;
-    color: #727278;
+  .columnName {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    span:first-child {
+      font-weight: 700;
+    }
+
+    span:last-child {
+      color: rgba(114, 114, 120, 1);
+    }
   }
 
   .dataColumn2 span {
-    padding: 10px 5px;
     border-radius: 10px;
+    padding: 6px;
     background: #d1fae5;
+    color: rgba(5, 150, 105, 1);
+    font-weight: bold;
+    font-size: 12px;
   }
 `;

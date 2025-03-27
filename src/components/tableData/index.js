@@ -1,37 +1,110 @@
-import React from 'react';
+import { React, useState } from 'react';
 import PropTypes from 'prop-types';
+import { FaEllipsisH } from 'react-icons/fa';
 
 import { TableData } from './styled';
 
-export default function Data({column, column2, column3}) {
+export default function DataTable({ columns, data }) {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
+  // Calcular os índices dos itens a serem exibidos
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentData = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Função para mudar de página
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  // Calcular o número total de páginas
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  // Calcular o número total de itens
+  const totalItems = data.length;
+
+  // Função para gerar os números das páginas
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
+
+  // Calcular o intervalo de exibição atual
+  const startItem = indexOfFirstItem + 1;
+  const endItem = Math.min(indexOfLastItem, totalItems);
+
   return (
-    <TableData>
-    <thead>
-      <tr>
-        <th>{column}</th>
-        <th>{column2}</th>
-        <th>{column3}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <span>João</span>
-          <br></br>
-          <span>232424</span>
-        </td>
-        <td className='dataColumn2'>Inativo</td>
-        <td>
-          <img src={iconActions}></img>
-        </td>
-      </tr>
-    </tbody>
-  </TableData>
+    <div>
+      <TableData>
+        <thead>
+          <tr>
+            {columns.map((col, index) => (
+              <th key={index}>{col}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {currentData.map((item, index) => (
+            <tr key={index}>
+              <td className="columnName">
+                <span>{item.name}</span>
+                {item.tel && (
+                  <>
+                    <br />
+                    <span className="tel">{item.tel}</span>
+                  </>
+                )}
+              </td>
+              <td className="dataColumn2">
+                <span>{item.infoColumn2}</span>
+              </td>
+              <td>
+                {item.infoColumn3 ? (
+                  <span>{item.infoColumn3}</span>
+                ) : (
+                  <button>
+                    <FaEllipsisH />
+                  </button>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </TableData>
+
+      {/* Botões de navegação */}
+      <p>
+        Exibindo {endItem} de {totalItems} beneficiários
+      </p>
+      <div className="pagination">
+        <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+          Anterior
+        </button>
+        {pageNumbers.map((number) => (
+          <button
+            key={number}
+            onClick={() => paginate(number)}
+            className={currentPage === number ? 'active' : ''}>
+            {number}
+          </button>
+        ))}
+
+        <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPages}>
+          Próxima
+        </button>
+      </div>
+    </div>
   );
 }
 
-TableData.propTypes = {
-  column: PropTypes.string.isRequired,
-  column2: PropTypes.string,
-  column3: PropTypes.string.isRequired,
+DataTable.propTypes = {
+  columns: PropTypes.arrayOf(PropTypes.string).isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      tel: PropTypes.string,
+      infoColumn2: PropTypes.string.isRequired,
+      infoColumn3: PropTypes.string,
+      iconActions: PropTypes.string
+    })
+  ).isRequired
 };
