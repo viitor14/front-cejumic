@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 import { FaEllipsisH } from 'react-icons/fa';
 
-import { TableData } from './styled';
+import { TableData, DivData, ButtonNavPagination, ButtonNextPage } from './styled';
 
 export default function DataTable({ columns, data }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,7 +33,7 @@ export default function DataTable({ columns, data }) {
   const endItem = Math.min(indexOfLastItem, totalItems);
 
   return (
-    <div>
+    <DivData>
       <TableData>
         <thead>
           <tr>
@@ -73,26 +73,28 @@ export default function DataTable({ columns, data }) {
 
       {/* Botões de navegação */}
       <p>
-        Exibindo {endItem} de {totalItems} beneficiários
+        Exibindo <span>{endItem}</span> de <span>{totalItems}</span> beneficiários
       </p>
-      <div className="pagination">
-        <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+      <ButtonNavPagination className="pagination">
+        <ButtonNextPage onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
           Anterior
-        </button>
+        </ButtonNextPage>
         {pageNumbers.map((number) => (
           <button
             key={number}
             onClick={() => paginate(number)}
-            className={currentPage === number ? 'active' : ''}>
+            className={currentPage === number ? 'active' : 'buttonNumberPage'}>
             {number}
           </button>
         ))}
 
-        <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPages}>
+        <ButtonNextPage
+          onClick={() => paginate(currentPage + 1)}
+          disabled={currentPage === totalPages}>
           Próxima
-        </button>
-      </div>
-    </div>
+        </ButtonNextPage>
+      </ButtonNavPagination>
+    </DivData>
   );
 }
 

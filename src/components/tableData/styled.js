@@ -1,5 +1,20 @@
 import styled from 'styled-components';
 
+export const DivData = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+
+  p {
+    span {
+      font-weight: 700;
+    }
+
+    color: rgba(113, 113, 122, 1);
+    font-size: 12px;
+  }
+`;
+
 export const TableData = styled.table`
   width: 100%;
   border-collapse: collapse;
@@ -75,4 +90,35 @@ export const TableData = styled.table`
   button {
     background: none;
   }
+`;
+
+export const ButtonNavPagination = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+
+  button {
+    font-size: 12px;
+  }
+
+  .active {
+    font-weight: 700;
+    color: rgba(0, 128, 255, 1);
+    border: 1px solid rgba(196, 226, 255, 1);
+    padding: 6px 10px;
+  }
+
+  .buttonNumberPage {
+    padding: 6px 10px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const ButtonNextPage = styled.button`
+  padding: 7px 10px;
+  font-weight: 600;
+  color: ${(props) => (props.disabled ? 'rgb(114, 114, 120)' : 'rgb(0, 0, 0)')};
+  border: ${(props) => (props.disabled ? 'none' : '1px solid rgba(0, 0, 0, 0.2);')};
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
 `;
