@@ -28,6 +28,7 @@ export default function Recipient() {
               text="Gerenciamento de beneficiários do CEJUMIC"
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
+              linkButtonAdd="/Novo beneficiário"
             />
           </div>
           <DataTable columns={columns} data={filteredData} />

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import { SectionTop, SearchBar, Filter, Introduction, DashboardContainer } from './styled';
 
@@ -16,7 +17,8 @@ export default function BoxIntroduction({
   text,
   textButtonTop,
   searchTerm,
-  setSearchTerm
+  setSearchTerm,
+  linkButtonAdd
 }) {
   return (
     <SectionTop>
@@ -29,14 +31,16 @@ export default function BoxIntroduction({
         </DashboardContainer>
       </Introduction>
 
-      <button>
-        <img src={iconPlus} alt="Icone Botão" className="iconPlus" />
-        {textButtonTop && (
-          <>
-            <span>{textButtonTop}</span>
-          </>
-        )}
-      </button>
+      <Link to={linkButtonAdd}>
+        <button>
+          <img src={iconPlus} alt="Icone Botão" className="iconPlus" />
+          {textButtonTop && (
+            <>
+              <span>{textButtonTop}</span>
+            </>
+          )}
+        </button>
+      </Link>
 
       <SearchBar>
         <div className="lupa">
@@ -72,5 +76,6 @@ BoxIntroduction.propTypes = {
   alt: PropTypes.string,
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  linkButtonAdd: PropTypes.string,
   textButtonTop: PropTypes.string
 };
