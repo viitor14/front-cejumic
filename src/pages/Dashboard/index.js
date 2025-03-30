@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import axios from '../../services/axios';
+import React from 'react';
 
 import BoxIntroduction from '../../components/introduction';
 import BoxContent from '../../components/boxContent';
-import { PageBackground, DivMain, SectionMain } from '../../styles/GlobalStyles';
-import iconDashboard from '../../assets/images/Icon-with-border.png';
 
-export default function Home() {
+import { PageBackground, DivMain, SectionMain } from '../../styles/GlobalStyles';
+
+export default function PageDashboard() {
   return (
     <PageBackground>
       <DivMain>

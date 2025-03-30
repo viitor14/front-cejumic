@@ -5,11 +5,11 @@ import BoxIntroduction from '../../components/introduction';
 
 import { PageBackground, DivMain, SectionMain } from '../../styles/GlobalStyles';
 
+import iconVolunteers from './assets/images/icon-beneficiario.png';
+
 import { data, columns } from './data';
 
-import iconRecipient from './assets/images/icon-beneficiario.png';
-
-export default function Recipient() {
+export default function PageVolunteers() {
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredData = data.filter((item) =>
@@ -20,16 +20,15 @@ export default function Recipient() {
     <PageBackground>
       <DivMain>
         <SectionMain>
-          <div>
-            <BoxIntroduction
-              icon={iconRecipient}
-              alt="Icone Beneficiario"
-              title="Beneficiario"
-              text="Gerenciamento de beneficiários do CEJUMIC"
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-            />
-          </div>
+          <BoxIntroduction
+            icon={iconVolunteers}
+            alt="Icone de voluntário"
+            title="Voluntários"
+            text="Gerenciamento de voluntários"
+            textButtonTop="Novo Voluntário"
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
           <DataTable columns={columns} data={filteredData} />
         </SectionMain>
       </DivMain>

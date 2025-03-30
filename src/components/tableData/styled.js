@@ -21,7 +21,7 @@ export const TableData = styled.table`
 
   //border-spacing: 0 21px;
   tr {
-    border-bottom: 1px solid rgba(209, 209, 209, 1);
+    border-bottom: 2px solid rgba(209, 209, 209, 1);
   }
 
   th,
@@ -78,13 +78,23 @@ export const TableData = styled.table`
     }
   }
 
+  .dataColumn3 span,
   .dataColumn2 span {
     border-radius: 10px;
     padding: 6px;
-    background: #d1fae5;
-    color: rgba(5, 150, 105, 1);
-    font-weight: bold;
     font-size: 12px;
+  }
+
+  .dataColumn2 .Ativo {
+    font-weight: bold;
+    color: rgba(5, 150, 105, 1);
+    background: #d1fae5;
+  }
+
+  .dataColumn2 .Inativo {
+    font-weight: bold;
+    color: rgba(236, 54, 85, 1);
+    background: rgba(255, 228, 230, 1);
   }
 
   button {

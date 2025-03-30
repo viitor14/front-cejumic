@@ -3,6 +3,7 @@ import * as colors from '../config/colors';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
+
   :root{
     --toastify-icon-color-success: white;
     --toastify-icon-color-error: white;
@@ -16,7 +17,7 @@ export default createGlobalStyle`
   }
 
   body{
-    font-family: sans-serif;
+    font-family: 'Poppins', 'sans-serif';
     background-color: ${colors.primaryColor};
     color: #000;
   }
@@ -33,7 +34,7 @@ export default createGlobalStyle`
 
   a{
     text-decoration: none;
-    color: ${colors.secundaryColor};
+    color: #000;
   }
 
   ul {

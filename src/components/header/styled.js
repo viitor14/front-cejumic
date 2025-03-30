@@ -1,5 +1,102 @@
 import styled from 'styled-components';
-import { secundaryColor } from '../../config/colors';
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  pointer-events: none;
+`;
+
+export const MenuNavigation = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  background: #fff;
+  transition: width 0.3s ease-in-out;
+  z-index: 1000;
+  padding-left: 14px;
+`;
+
+export const Navigate = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  font-weight: 500;
+
+  .boxLogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 40px;
+    border-bottom: 2px solid rgba(225, 225, 225, 1);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+  }
+  img {
+    width: 30px;
+    height: 30px;
+  }
+`;
+
+export const ItemsNav = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+  }
+
+  a {
+    font-size: 14px;
+  }
+`;
+
+export const ItemAdm = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-top: 2px solid rgba(225, 225, 225, 1);
+  padding: 20px 0;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+
+  div {
+  }
+
+  p:first-child {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  p:last-child {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(114, 114, 120, 1);
+  }
+`;
+
 export const Head = styled.header`
   display: flex; /* flex */
   align-items: center; /* items-center */

@@ -54,12 +54,18 @@ export default function DataTable({ columns, data }) {
                   </>
                 )}
               </td>
+
               <td className="dataColumn2">
-                <span>{item.infoColumn2}</span>
+                <span className={item.infoColumn2}>
+                  {typeof item.infoColumn2 === 'number'
+                    ? `R$${item.infoColumn2.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+                    : item.infoColumn2}
+                </span>
               </td>
-              <td>
+
+              <td className="dataColumn3">
                 {item.infoColumn3 ? (
-                  <span>{item.infoColumn3}</span>
+                  <span className={item.infoColumn3}>{item.infoColumn3}</span>
                 ) : (
                   <button>
                     <FaEllipsisH />
@@ -79,6 +85,7 @@ export default function DataTable({ columns, data }) {
         <ButtonNextPage onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
           Anterior
         </ButtonNextPage>
+
         {pageNumbers.map((number) => (
           <button
             key={number}
@@ -104,7 +111,7 @@ DataTable.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       tel: PropTypes.string,
-      infoColumn2: PropTypes.string.isRequired,
+      infoColumn2: PropTypes.string,
       infoColumn3: PropTypes.string,
       iconActions: PropTypes.string
     })
