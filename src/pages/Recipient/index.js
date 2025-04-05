@@ -16,6 +16,7 @@ export default function Recipient() {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [filterStatus, setFilterStatus] = useState('');
 
+  //OS DADOS PRECISAM SER PASSADOS POR ESSA CONSTANTE PARA FAZER COM QUE A BARRA DE PESQUISA POR NOME FUNCIONE. SOMENTE
   const filteredData = [...data]
     .filter((item) => item.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
     .filter((item) => (filterStatus ? item.infoColumn2 === filterStatus : true));

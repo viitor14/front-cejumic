@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { BsArrowLeft } from 'react-icons/bs';
 import { HiOutlinePlus } from 'react-icons/hi';
 
-import FilterModal from './FilterModal';
+// import FilterModal from './FilterModal';  ( MODAL PARA FILTRAR AS PESQUISAR )
 
 import { SectionTop, SearchBar, Filter, Introduction, DashboardContainer } from './styled';
 
