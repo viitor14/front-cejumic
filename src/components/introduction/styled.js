@@ -5,8 +5,6 @@ export const SectionTop = styled.section`
   flex-direction: column;
   gap: 21px;
   padding-bottom: 21px;
-  border-bottom: 1px solid rgba(209, 209, 209, 1);
-  //margin-bottom: 21px;
 
   button {
     display: flex;
@@ -70,13 +68,23 @@ export const Filter = styled.div`
   gap: 5px;
   width: 100%;
 
+  .teste {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: red;
+    width: 50%;
+    height: auto;
+    border: 1px solid rgba(209, 209, 209, 1);
+    border-radius: 10px;
+  }
+
   button {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
     background: none;
-    width: 50%;
-    border: 1px solid rgba(209, 209, 209, 1);
+    justify-content: space-evenly;
+    width: 100%;
   }
 
   img {

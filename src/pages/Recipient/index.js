@@ -3,6 +3,8 @@ import { React, useState } from 'react';
 import DataTable from '../../components/tableData';
 import BoxIntroduction from '../../components/introduction';
 
+// import FilterModal from '../../components/introduction/FilterModal';
+
 import { PageBackground, DivMain, SectionMain } from '../../styles/GlobalStyles';
 
 import { data, columns } from './data';
@@ -11,10 +13,12 @@ import iconRecipient from './assets/images/icon-beneficiario.png';
 
 export default function Recipient() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+  const [filterStatus, setFilterStatus] = useState('');
 
-  const filteredData = data.filter((item) =>
-    item.name.toLowerCase().startsWith(searchTerm.toLowerCase())
-  );
+  const filteredData = [...data]
+    .filter((item) => item.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
+    .filter((item) => (filterStatus ? item.infoColumn2 === filterStatus : true));
 
   return (
     <PageBackground>
@@ -29,6 +33,7 @@ export default function Recipient() {
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
               linkButtonAdd="/Novo beneficiário"
+              setFilterStatus={setFilterStatus}
             />
           </div>
           <DataTable columns={columns} data={filteredData} />

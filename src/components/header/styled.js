@@ -30,7 +30,6 @@ export const Navigate = styled.div`
   flex-direction: column;
   gap: 50px;
   font-weight: 500;
-
   .boxLogo {
     display: flex;
     justify-content: space-between;

@@ -18,18 +18,17 @@ export const DivData = styled.div`
 export const TableData = styled.table`
   width: 100%;
   border-collapse: collapse;
+  border-top: 1px solid rgba(209, 209, 209, 1);
 
-  //border-spacing: 0 21px;
   tr {
-    border-bottom: 2px solid rgba(209, 209, 209, 1);
+    border-bottom: 1px solid rgba(209, 209, 209, 1);
   }
 
   th,
   td {
     padding: 21px 0;
     text-align: left;
-    vertical-align: middle; /* Alinha o conteúdo verticalmente */
-    //border: 1px solid #ddd; /* Adiciona borda nas células */
+    vertical-align: middle;
   }
 
   /* Estilo para o cabeçalho */

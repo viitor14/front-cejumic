@@ -1,6 +1,10 @@
-import React from 'react';
+import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { BsArrowLeft } from 'react-icons/bs';
+import { HiOutlinePlus } from 'react-icons/hi';
+
+import FilterModal from './FilterModal';
 
 import { SectionTop, SearchBar, Filter, Introduction, DashboardContainer } from './styled';
 
@@ -18,8 +22,25 @@ export default function BoxIntroduction({
   textButtonTop,
   searchTerm,
   setSearchTerm,
-  linkButtonAdd
+  linkButtonAdd,
+  hideSearchBarAndFilter,
+  hideButtonAdd,
+  iconBackPage,
+  styleButton,
+  onFilterClick
 }) {
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+  const [filterStatus, setFilterStatus] = useState('');
+
+  const handleFilterClick = () => {
+    setIsFilterModalOpen((prev) => !prev);
+  };
+
+  // Aplica o filtro ao fechar o modal
+  const applyFilters = (status) => {
+    setFilterStatus(status);
+  };
+
   return (
     <SectionTop>
       <Introduction>
@@ -31,41 +52,64 @@ export default function BoxIntroduction({
         </DashboardContainer>
       </Introduction>
 
-      <Link to={linkButtonAdd}>
-        <button>
-          <img src={iconPlus} alt="Icone Botão" className="iconPlus" />
-          {textButtonTop && (
-            <>
-              <span>{textButtonTop}</span>
-            </>
-          )}
-        </button>
-      </Link>
+      {!hideButtonAdd && (
+        <Link to={linkButtonAdd}>
+          <button style={styleButton}>
+            {iconBackPage ? (
+              <Link to="/Beneficiario">
+                <BsArrowLeft style={{ color: '#000', fontSize: '20px' }} />
+              </Link>
+            ) : (
+              <HiOutlinePlus style={{ fontSize: '20px' }} />
+            )}
+            {textButtonTop && <span>{textButtonTop}</span>}
+          </button>
+        </Link>
+      )}
 
-      <SearchBar>
-        <div className="lupa">
-          <img src={iconSearch} alt="lupa" className="searchIcon" />
+      {/* Barra de busca */}
+      {!hideSearchBarAndFilter && (
+        <SearchBar className="test">
+          <div className="lupa">
+            <img src={iconSearch} alt="lupa" className="searchIcon" />
 
-          <input
-            type="text"
-            placeholder="Pesquisar..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="barraPesquisa"
-          />
-        </div>
-      </SearchBar>
+            <input
+              type="text"
+              placeholder="Pesquisar..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="barraPesquisa"
+            />
+          </div>
+        </SearchBar>
+      )}
 
-      <Filter>
-        <button>
-          <img src={iconFilter} alt="" />
-          <img src={iconDownArrow} alt="" />
-        </button>
-        <button>
-          <img src={iconUpDown} alt="" />
-          <img src={iconDownArrow} alt="" />
-        </button>
-      </Filter>
+      {/*
+
+        BOTÃO DE FILTRAR - DPS DA IMPLEMENTAÇÃO FAZER FUNCIONAR
+
+      {!hideSearchBarAndFilter && (
+        <Filter>
+          <div className="teste">
+            <button onClick={handleFilterClick}>
+              <img src={iconFilter} alt="" />
+              <img src={iconDownArrow} alt="" />
+            </button>
+            <div>
+              <FilterModal
+                isOpen={isFilterModalOpen}
+                onClose={() => setIsFilterModalOpen(false)}
+                onApply={applyFilters}
+              />
+            </div>
+          </div>
+          <button>
+            <img src={iconUpDown} alt="" />
+            <img src={iconDownArrow} alt="" />
+          </button>
+        </Filter>
+      )}
+            */}
     </SectionTop>
   );
 }
@@ -77,5 +121,10 @@ BoxIntroduction.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   linkButtonAdd: PropTypes.string,
-  textButtonTop: PropTypes.string
+  textButtonTop: PropTypes.string,
+  iconBackPage: PropTypes.bool,
+  styleButton: PropTypes.string,
+  hideSearchBarAndFilter: PropTypes.bool,
+  hideButtonAdd: PropTypes.bool,
+  onFilterClick: PropTypes.func
 };

@@ -34,8 +34,11 @@ export default createGlobalStyle`
   }
 
   a{
+    display: flex;
+    width: fit-content;
     text-decoration: none;
     color: #000;
+    text-align: center;
   }
 
   ul {

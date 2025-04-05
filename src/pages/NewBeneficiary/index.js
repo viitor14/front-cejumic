@@ -21,8 +21,11 @@ export default function PageNewBeneficiary() {
             icon={IconNewBeneficiary}
             text="Adicionar um novo beneficiário ao sistema"
             title="Novo Beneficiário"
+            hideSearchBarAndFilter={true}
+            iconBackPage={true}
+            styleButton={{ backgroundColor: 'transparent', border: '1px solid #D1D1D1' }}
           />
-
+          {/** ABAIXO É UM FORM NORMAL, SÓ QUE ESTA COM A TAG DIFERENTE MAS RECEBE AS MESMA PROPRIEDADES */}
           <FormAddBeneficiario action="">
             <BoxInputGetData>
               <div className="titleBox">

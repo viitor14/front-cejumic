@@ -14,6 +14,8 @@ export default function PageDashboard() {
             icon="../../assets/images/Icon-with-border.png"
             title="Dashboad"
             text="Visão geral das atividades da CEJUMIC"
+            hideSearchBarAndFilter={true}
+            hideButtonAdd={true}
           />
 
           <BoxContent

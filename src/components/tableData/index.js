@@ -4,7 +4,9 @@ import { FaEllipsisH } from 'react-icons/fa';
 
 import { TableData, DivData, ButtonNavPagination, ButtonNextPage } from './styled';
 
+// ESSE COMPONENTE SÓ PRECISA RECEBE OS DADOS PASSADO ATRAVÉS DA PROPS ABAIXO, COLUMNS E DATA. QUE ESTÁ VINDO DA PAGINA DO RECEPIENT POR UM ARQUIVO CHAMADO DATA.JS
 export default function DataTable({ columns, data }) {
+  // CODIGO GERADO PARA FAZER A NAVEGAÇÃO ENTRE OS ITEMS, PARA QUE NA TELA DO CELULAR APAREÇA 5 POR PAGINA
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
