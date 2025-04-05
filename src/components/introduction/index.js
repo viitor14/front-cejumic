@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import history from '../../services/history';
 import { BsArrowLeft } from 'react-icons/bs';
 import { HiOutlinePlus } from 'react-icons/hi';
 
@@ -53,18 +54,22 @@ export default function BoxIntroduction({
       </Introduction>
 
       {!hideButtonAdd && (
-        <Link to={linkButtonAdd}>
-          <button style={styleButton}>
-            {iconBackPage ? (
-              <Link to="/Beneficiario">
-                <BsArrowLeft style={{ color: '#000', fontSize: '20px' }} />
-              </Link>
-            ) : (
-              <HiOutlinePlus style={{ fontSize: '20px' }} />
-            )}
-            {textButtonTop && <span>{textButtonTop}</span>}
-          </button>
-        </Link>
+        <button
+          style={styleButton}
+          onClick={() => {
+            if (iconBackPage) {
+              history.goBack(); // Volta para a rota anterior
+            } else {
+              history.push(linkButtonAdd); // Vai para a rota do botão
+            }
+          }}>
+          {iconBackPage ? (
+            <BsArrowLeft style={{ color: '#000', fontSize: '20px' }} />
+          ) : (
+            <HiOutlinePlus style={{ fontSize: '20px' }} />
+          )}
+          {textButtonTop && <span>{textButtonTop}</span>}
+        </button>
       )}
 
       {/* Barra de busca */}

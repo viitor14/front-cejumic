@@ -33,7 +33,7 @@ export default function Recipient() {
               text="Gerenciamento de beneficiários do CEJUMIC"
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
-              linkButtonAdd="/Novo beneficiário"
+              linkButtonAdd="/NovoBeneficiário"
               setFilterStatus={setFilterStatus}
             />
           </div>

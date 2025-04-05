@@ -30,6 +30,7 @@ export default function PageDonations() {
               title="Doações"
               text="Gerenciamento de doações recebidas"
               textButtonTop="Nova Doação"
+              linkButtonAdd="/NovaDoação"
             />
           </div>
           <DataTable columns={columns} data={filteredData} />
