@@ -9,6 +9,9 @@ import {
   FormAddBeneficiario,
   BoxInputGetData
 } from '../../styles/GlobalStyles';
+
+import { InputTypeDonate } from './styled';
+
 import BoxIntroduction from '../../components/introduction';
 import InputGetData from '../../components/boxInputData';
 
@@ -55,10 +58,17 @@ export default function PageNewDonations() {
                 <p>Detalhes da Doação</p>
               </div>
 
-              <div>
+              <InputTypeDonate>
                 <p>Tipo de Doação</p>
-                <Select options={typeDonate} placeholder="Selecionar tipo de doação" />
-              </div>
+                <Select
+                  classNamePrefix="inputSelect"
+                  options={typeDonate}
+                  placeholder="Selecionar tipo de doação"
+                />
+              </InputTypeDonate>
+
+              <InputGetData text="Quantidade" textPlaceholder="0" type="number" />
+
               <InputGetData text="Valor (R$)" textPlaceholder="0.00" type="number" step="0.01" />
               <div className="boxTextArea">
                 <p>Descrição da Doação</p>

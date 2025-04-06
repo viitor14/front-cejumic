@@ -28,6 +28,7 @@ export default function PageVolunteers() {
             textButtonTop="Novo Voluntário"
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
+            linkButtonAdd="/NovoVoluntário"
           />
           <DataTable columns={columns} data={filteredData} />
         </SectionMain>
