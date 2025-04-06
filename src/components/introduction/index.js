@@ -119,8 +119,8 @@ export default function BoxIntroduction({
   );
 }
 BoxIntroduction.propTypes = {
-  searchTerm: PropTypes.string.isRequired,
-  setSearchTerm: PropTypes.func.isRequired,
+  searchTerm: PropTypes.string,
+  setSearchTerm: PropTypes.func,
   icon: PropTypes.string.isRequired,
   alt: PropTypes.string,
   title: PropTypes.string.isRequired,

@@ -47,16 +47,17 @@ export default createGlobalStyle`
 
   //Mudar css do Toastify
   body .Toastify .Toastify__toast-container .Toastify__toast--success{
-    background: ${colors.succesColor};
+    background: blue;
     color: #fff;
   }
 
   .Toastify__progress-bar--success {
-  background: white;
+    background: white;
   }
 
   body .Toastify .Toastify__toast-container .Toastify__toast--error{
-    background: ${colors.errorColor};
+    background: red;
+    color: #fff;
   }
 
   .Toastify__progress-bar--error {
