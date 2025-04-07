@@ -182,7 +182,7 @@ export default function PageNewVolunteers() {
               <div className="boxTextArea">
                 <p>Habilidades e Competências</p>
                 <textarea
-                  placeholder="Descreba as habilidades e competências do voluntário"
+                  placeholder="Descreva as habilidades e competências do voluntário"
                   onChange={(e) => setSkills(e.target.value)}></textarea>
               </div>
 

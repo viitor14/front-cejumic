@@ -1,4 +1,7 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
+
+// IR EM services> axios.js e trocar a url
+import axios from '../../services/axios';
 
 import DataTable from '../../components/tableData';
 import BoxIntroduction from '../../components/introduction';
@@ -15,8 +18,18 @@ export default function Recipient() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [filterStatus, setFilterStatus] = useState('');
+  const [dados, setDados] = useState([]);
+  /*
+  useEffect(() => {
+    async function getData() {
+      const response = await axios.get('rota');
+      setDados(response.data);
+    }
 
-  //OS DADOS PRECISAM SER PASSADOS POR ESSA CONSTANTE PARA FAZER COM QUE A BARRA DE PESQUISA POR NOME FUNCIONE. SOMENTE
+    getData();
+  }, []);
+  */
+  //Trocar data por dados
   const filteredData = [...data]
     .filter((item) => item.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
     .filter((item) => (filterStatus ? item.infoColumn2 === filterStatus : true));

@@ -1,38 +1,71 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { Container } from '../../styles/GlobalStyles';
-import { Title, DivLogin } from './styled';
+import { PageBackground, SectionMain, DivMain, Container } from '../../styles/GlobalStyles';
+
+import history from '../../services/history';
+
+import { Box, DivLogin } from './styled';
 import * as actions from '../../store/modules/auth/actions';
 
+import Logo from './assets/images/filter (1).png';
+import { toast } from 'react-toastify';
+
 export default function Login() {
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   //dispatch - usadora para disparar ações
   //ação - descrever para redux o que deve fazer
 
-  function handleClick(e) {
-    e.preventDefault();
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
-    dispatch(actions.loginRequest());
+  function handleSubmitForm(e) {
+    e.preventDefault();
+    let formErrors = false;
+
+    if (!email.trim() || !senha.trim()) {
+      toast.error('Digite email e senha');
+      formErrors = true;
+      return;
+    }
+
+    if (!formErrors) {
+      console.log({ email, senha });
+      history.push('/Dashboard');
+    }
+
+    //dispatch(actions.loginRequest());
   }
   return (
-    <Container>
+    <Box>
       <DivLogin>
-        <form action="">
+        <div className="divLogo">
+          <img src={Logo} alt="" />
+          <h1>CEJUMIC</h1>
+          <p>Entre com suas credenciais para acessar o sistema</p>
+        </div>
+
+        <form onSubmit={handleSubmitForm}>
           <label htmlFor="nome">
-            Login:
-            <input type="text" name="nome" id="nome" />
+            Email
+            <input
+              type="text"
+              placeholder="seu.email@exemplo.com"
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </label>
 
           <label htmlFor="senha">
-            Senha:
-            <input type="text" name="senha" id="senha" />
+            Senha
+            <input
+              type="password"
+              placeholder="******"
+              onChange={(e) => setSenha(e.target.value)}
+            />
           </label>
+          <button type="submit">Entrar</button>
         </form>
       </DivLogin>
-      <button type="button" onClick={handleClick}>
-        Enviar
-      </button>
-    </Container>
+    </Box>
   );
 }

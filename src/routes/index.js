@@ -16,7 +16,8 @@ import NewVolunteers from '../pages/NewVolunteers';
 export default function Routes() {
   return (
     <Switch>
-      <MyRoute exact path="/" component={Dashboard} />
+      <MyRoute exact path="/" component={Login} />
+      <MyRoute exact path="/Dashboard" component={Dashboard} />
       <MyRoute exact path="/Beneficiario" component={Recipient} />
       <MyRoute exact path="/Doações" component={Donations} />
       <MyRoute exact path="/Voluntários" component={Volunteers} />
