@@ -1,5 +1,5 @@
 ANTES DE RODAR O CODIGO INSTALAR AS EXTENSÕES:
-ESLint, Prettier, Error Lens
+ESLint, Prettier, Error Lens, Styled-Components
 
 Nas configurações do JSON do vscode coloca os seguintes codigos:
 "editor.formatOnSave": true,
